@@ -1,0 +1,31 @@
+.nav {
+  padding: 10px 20px;
+  width: 100vw;
+  margin: 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  background-color: blueviolet;
+  justify-content: space-between;
+}
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.links a {
+  padding: 0 10px;
+  font-weight: 500;
+}
+
+.links a:hover {
+  text-decoration: underline;
+  transition: 0.5s ease-in-out infinity;
+}
+.footer {
+  padding: 20px 10px;
+  text-align: center;
+  background-color: blueviolet;
+  color: #fff;
+}

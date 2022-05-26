@@ -1,0 +1,15 @@
+.root{
+    text-align: center;
+}
+.form{
+    width: 70vw;
+    padding: 30px;
+    margin: 50px auto;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow:  20px 20px 60px #d9d9d9,
+             -20px -20px 60px #ffffff;
+}
+.field{
+    margin-bottom: 20px !important;
+}
