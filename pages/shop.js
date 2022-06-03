@@ -162,11 +162,11 @@ function Shop() {
           >
             <MenuItem value="msand">M-Sand</MenuItem>
             <MenuItem value="psand">P-Sand</MenuItem>
-            <MenuItem value="1/2 jally">1/2 Jally</MenuItem>
-            <MenuItem value="1-1/2 jally">1-1/2 Jally</MenuItem>
-            <MenuItem value="3/4 jally">3/4 Jally</MenuItem>
-            <MenuItem value="chips jally">Chips Jally</MenuItem>
-            <MenuItem value="Powder">Powder</MenuItem>
+            <MenuItem value="halfJally">1/2 Jally</MenuItem>
+            <MenuItem value="oneHalfJally">1-1/2 Jally</MenuItem>
+            <MenuItem value="threebyfourJally">3/4 Jally</MenuItem>
+            <MenuItem value="chips">Chips Jally</MenuItem>
+            <MenuItem value="powder">Powder</MenuItem>
           </Select>
         </FormControl>
         <TextField
