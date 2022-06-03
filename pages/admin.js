@@ -22,7 +22,7 @@ function Admin() {
 
 
     const fetchDetails = async()=>{
-       const response = await fetch("http://localhost:3000/api/viewOrders");
+       const response = await fetch("https://ksrbluemetals.vercel.app/api/viewOrders");
        const data = await response.json()
        console.log(data)
        if(data.success){
@@ -31,14 +31,14 @@ function Admin() {
     }
 
     const priceDetails = async()=>{
-        const response1 = await fetch("http://localhost:3000/api/prices")
+        const response1 = await fetch("https://ksrbluemetals.vercel.app/api/prices")
         const data1 = await response1.json();
         setPrices(data1.data[0])
         setPricesKeys(Object.keys(data1.data[0]))
     }
 
     const deliveryHandller = async(id)=>{
-        const res = await fetch("http://localhost:3000/api/viewOrders", {
+        const res = await fetch("https://ksrbluemetals.vercel.app/api/viewOrders", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -63,7 +63,7 @@ function Admin() {
     const updateHandller = async(data)=>{
         console.log(newPrice, data)
         console.log(newPrice[data])
-        const res = await fetch("http://localhost:3000/api/prices", {
+        const res = await fetch("https://ksrbluemetals.vercel.app/api/prices", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

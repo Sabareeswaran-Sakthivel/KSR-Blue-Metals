@@ -38,7 +38,7 @@ function Shop() {
 
   useEffect(()=>{
     (async()=>{
-      const response = await fetch("http://localhost:3000/api/prices")
+      const response = await fetch("https://ksrbluemetals.vercel.app/api/prices")
       const data = await response.json();
       setPrices(data.data[0])
     })()
@@ -52,7 +52,7 @@ function Shop() {
   const submitHandller = async() => {
     setConfirm(false);
     if (name.length > 0 && email.length > 0 && mobile.length > 0) {
-      const orderRes = await fetch("http://localhost:3000/api/orders", {
+      const orderRes = await fetch("https://ksrbluemetals.vercel.app/api/orders", {
         method: "POST",
         body: JSON.stringify({
           amount: price * 100
@@ -72,7 +72,7 @@ function Shop() {
         image: "https://example.com/your_logo",
         order_id: data.id,
         handler: function (response) {
-          fetch("http://localhost:3000/api/addorders", {
+          fetch("https://ksrbluemetals.vercel.app/api/addorders", {
             method: "POST",
             body: JSON.stringify({
                name: name,
