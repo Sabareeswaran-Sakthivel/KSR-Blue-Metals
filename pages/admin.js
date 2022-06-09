@@ -53,7 +53,7 @@ function Admin() {
     
 
     const handlePassword = ()=>{
-        if(password === "OOmbu"){
+        if(password === "ksr6768"){
             setIsLogged(true)
         }else{
             window.location.href = "/"
