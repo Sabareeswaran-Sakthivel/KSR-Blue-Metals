@@ -48,7 +48,12 @@ function Shop() {
   };
   const submitHandller = async () => {
     setConfirm(false);
-    if (name.length > 0 && email.length > 0 && mobile.length > 0) {
+    if (
+      name.length > 2 &&
+      email.length > 6 &&
+      email.includes("@") &&
+      mobile.length <= 10
+    ) {
       const orderRes = await fetch(
         "https://www.ksrbluemetals.site/api/orders",
         {
@@ -152,7 +157,7 @@ function Shop() {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
-        <FormControl fullWidth className={styles.field}>
+        <FormControl required fullWidth className={styles.field}>
           <InputLabel id="select-label">Product</InputLabel>
           <Select
             labelId="select-label"
