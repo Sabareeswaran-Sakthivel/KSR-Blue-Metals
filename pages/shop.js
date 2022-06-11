@@ -15,11 +15,10 @@ import "react-toastify/dist/ReactToastify.css";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Shop.module.css";
 
-
 const prices = {
-  "msand" : 1000,
-  "psand" : 100
-}
+  msand: 1000,
+  psand: 100,
+};
 
 function Shop() {
   const [name, setName] = useState("");
@@ -36,63 +35,65 @@ function Shop() {
   const [price, setPrice] = useState(0);
   const [confirm, setConfirm] = useState(false);
 
-  useEffect(()=>{
-    (async()=>{
-      const response = await fetch("https://ksrbluemetals.vercel.app/api/prices")
+  useEffect(() => {
+    (async () => {
+      const response = await fetch("https://www.ksrbluemetals.site/api/prices");
       const data = await response.json();
-      setPrices(data.data[0])
-    })()
-   
-  },[])
+      setPrices(data.data[0]);
+    })();
+  }, []);
 
-
-  const confirmHandller = ()=>{
-     setConfirm(true);
-  }
-  const submitHandller = async() => {
+  const confirmHandller = () => {
+    setConfirm(true);
+  };
+  const submitHandller = async () => {
     setConfirm(false);
     if (name.length > 0 && email.length > 0 && mobile.length > 0) {
-      const orderRes = await fetch("https://ksrbluemetals.vercel.app/api/orders", {
-        method: "POST",
-        body: JSON.stringify({
-          amount: price * 100
-        }),
-        headers: {
-          "Content-Type": "application/json"
+      const orderRes = await fetch(
+        "https://www.ksrbluemetals.site/api/orders",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            amount: price * 100,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      })
-      const data = await orderRes.json()
-      console.log(data)
+      );
+      const data = await orderRes.json();
+      console.log(data);
       var options = {
         key: "rzp_test_QnI67kwM3hCK4O",
         amount: price * 100,
         currency: "INR",
         name: "KSR Blue Metals",
-        description: "KSR Blue Metals Payment" + product + " x " + unit + " units",
+        description:
+          "KSR Blue Metals Payment" + product + " x " + unit + " units",
         image: "https://example.com/your_logo",
         order_id: data.id,
         handler: function (response) {
-          fetch("https://ksrbluemetals.vercel.app/api/addorders", {
+          fetch("https://www.ksrbluemetals.site/api/addorders", {
             method: "POST",
             body: JSON.stringify({
-               name: name,
-               email: email,
-               address: address,
-               amount: price,
-               units: unit,
-               mobile: mobile,
-               order_id: data.id,
-               payment_id: response.razorpay_payment_id,
-               payment_signature: response.razorpay_signature,
-               product_type: product,
-               pincode: pin,
-               district: district,
-               order_date: new Date(),
+              name: name,
+              email: email,
+              address: address,
+              amount: price,
+              units: unit,
+              mobile: mobile,
+              order_id: data.id,
+              payment_id: response.razorpay_payment_id,
+              payment_signature: response.razorpay_signature,
+              product_type: product,
+              pincode: pin,
+              district: district,
+              order_date: new Date(),
             }),
             headers: {
-              "Content-Type": "application/json"
-            }
-          })
+              "Content-Type": "application/json",
+            },
+          });
           // alert(response.razorpay_payment_id);
           // alert(response.razorpay_order_id);
           // alert(response.razorpay_signature);
@@ -109,24 +110,23 @@ function Shop() {
       };
       rzp1 = new Razorpay(options);
       rzp1.on("payment.failed", function (response) {
-        toast.error("Payment Failed. Try Again")
+        toast.error("Payment Failed. Try Again");
       });
       rzp1.open();
-      setName('')
-      setEmail('')
-      setEmail('')
-      setProduct('')
-      setUnit('')
-      setMobile('')
-      setAddress('')
-      setCity('')
-      setDistrict('')
-      setPin('')
+      setName("");
+      setEmail("");
+      setEmail("");
+      setProduct("");
+      setUnit("");
+      setMobile("");
+      setAddress("");
+      setCity("");
+      setDistrict("");
+      setPin("");
     } else {
       toast.error("All Fields Are Required !");
     }
   };
-
 
   return (
     <div className={styles.root}>
@@ -176,8 +176,8 @@ function Shop() {
           fullWidth
           className={styles.field}
           onChange={(e) => {
-            setUnit(e.target.value)
-            setPrice(prices[product]*parseInt(e.target.value))
+            setUnit(e.target.value);
+            setPrice(prices[product] * parseInt(e.target.value));
           }}
           value={unit}
         />
@@ -231,16 +231,14 @@ function Shop() {
       </div>
       <ToastContainer />
       <Dialog open={confirm}>
-        <DialogTitle>
-          Confirm Order
-        </DialogTitle>
+        <DialogTitle>Confirm Order</DialogTitle>
         <DialogContent>
           <h3>Product: {product}</h3>
           <h3>Unit: {unit}</h3>
           <h3>Price: {price}</h3>
         </DialogContent>
         <DialogActions>
-          <Button onClick={()=> setConfirm(false)}>Cancel</Button>
+          <Button onClick={() => setConfirm(false)}>Cancel</Button>
           <Button onClick={submitHandller}>Confirm</Button>
         </DialogActions>
       </Dialog>
