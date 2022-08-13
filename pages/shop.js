@@ -165,13 +165,13 @@ function Shop() {
             label="Product"
             onChange={(e) => setProduct(e.target.value)}
           >
-            <MenuItem value="msand">M-Sand</MenuItem>
-            <MenuItem value="psand">P-Sand</MenuItem>
-            <MenuItem value="halfJally">1/2 Jally</MenuItem>
-            <MenuItem value="oneHalfJally">1-1/2 Jally</MenuItem>
-            <MenuItem value="threebyfourJally">3/4 Jally</MenuItem>
-            <MenuItem value="chips">Chips Jally</MenuItem>
-            <MenuItem value="powder">Powder</MenuItem>
+            <MenuItem value="msand 2900/-">M-Sand</MenuItem>
+            <MenuItem value="psand 3000/-">P-Sand</MenuItem>
+            <MenuItem value="halfJally 2000/-">1/2 Jally</MenuItem>
+            <MenuItem value="oneHalfJally 1300/-">1-1/2 Jally</MenuItem>
+            <MenuItem value="threebyfourJally 1400/-">3/4 Jally</MenuItem>
+            <MenuItem value="chips 800/-">Chips Jally</MenuItem>
+            <MenuItem value="powder 1100/-">Powder</MenuItem>
           </Select>
         </FormControl>
         <TextField
